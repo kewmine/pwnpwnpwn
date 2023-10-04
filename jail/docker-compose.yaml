@@ -1,0 +1,12 @@
+services:
+  lab:
+    container_name: pwnpwnpwn
+    hostname: pwnpwnpwn
+
+    image: debian:latest
+    volumes:
+      - /home/kew/projects/pwnpwnpwn/jail/env:/root/env:rw
+      - /home/kew/projects/pwnpwnpwn/jungle:/root/jungle:rw
+
+    tty: true
+    command: bash -c "/root/env/init.sh& tail -f /root/env/main.log"
